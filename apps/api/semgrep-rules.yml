@@ -1,0 +1,26 @@
+rules:
+  - id: dependencyshield.import-reference
+    message: Source import or module reference; used only as possible dependency usage evidence.
+    severity: INFO
+    languages: [generic]
+    metadata:
+      category: reachability-evidence
+    pattern-regex: (?ms)^\s*(?:import\s+(?:\([^)]*\)|[^;\n]+)|from\s+[\w.]+\s+import\s+[^;\n]+|(?:const|let|var)\s+[^=]+\s*=\s*require\s*\([^\n]+|[^\n]+\s+from\s+["'][^"']+["']|use\s+[\w:]+)\s*;?
+
+  - id: dependencyshield.dynamic-code-evaluation
+    message: Dynamic code evaluation can execute attacker-controlled input.
+    severity: WARNING
+    languages: [generic]
+    metadata:
+      category: security
+      cwe: "CWE-95"
+    pattern-regex: (?i)(?<![\w.])(?:eval\s*\(|exec\s*\()|\bnew\s+Function\s*\(|pickle\.loads?\s*\(
+
+  - id: dependencyshield.shell-execution
+    message: Shell execution API detected; review whether untrusted input can reach it.
+    severity: WARNING
+    languages: [generic]
+    metadata:
+      category: security
+      cwe: "CWE-78"
+    pattern-regex: (?i)\b(?:child_process\.(?:exec|execSync|spawn|spawnSync)|subprocess\.(?:run|call|Popen|check_output)|os\.system)\s*\(

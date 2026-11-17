@@ -1,0 +1,65 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+.secrets/
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*_rsa
+*_ed25519
+*_ecdsa
+*_dsa
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+service-account*.json
+credentials*.json
+*-credentials.json
+
+# Dependencies and generated builds
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+dist/
+**/dist/
+build/
+coverage/
+.turbo/
+*.tsbuildinfo
+
+# Local databases, backups, and runtime data
+data/
+database/data/
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.dump
+*.backup
+*.sql.gz
+*.bak
+*.log
+logs/
+tmp/
+temp/
+
+# Local container overrides and generated assets
+docker-compose.override.yml
+*.pid
+*.seed
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/

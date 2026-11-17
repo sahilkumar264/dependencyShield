@@ -1,0 +1,16 @@
+{
+  "name": "dependencyshield",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @dependencyshield/api --filter @dependencyshield/web dev",
+    "build": "pnpm --filter @dependencyshield/shared-types build && pnpm --filter @dependencyshield/api build && pnpm --filter @dependencyshield/web build",
+    "typecheck": "pnpm --filter @dependencyshield/shared-types typecheck && pnpm --filter @dependencyshield/api typecheck && pnpm --filter @dependencyshield/web typecheck",
+    "db:migrate": "pnpm --filter @dependencyshield/api db:migrate"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  }
+}
